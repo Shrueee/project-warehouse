@@ -51,6 +51,6 @@ class BarangController extends Controller
         return redirect('/daftar-barang');
     }
     function deletedBarang(){
-        return view('barangDeletedList');
+        return view('dashboard.barang.barangDeletedList');
     }
 }

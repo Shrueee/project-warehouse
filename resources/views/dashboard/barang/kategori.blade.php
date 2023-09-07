@@ -20,6 +20,7 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
+                            <th>No</th>
                             <th>Kategori</th>
                             <th>Banyak Produk</th>
                             <th>Aksi</th>
@@ -28,6 +29,7 @@
                     <tbody>
                         @foreach ($categories as $category)
                         <tr>
+                            <td>{{ $loop->iteration }}</td>
                             <td><b>{{ $category->name }}</b></td>
                             <td>{{ $category->Products->count() }}</td>
                             <td>
