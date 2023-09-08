@@ -42,7 +42,7 @@ class BarangController extends Controller
     function hapus(Product $product){
         $aksi = 'hapus';
         $target = $product;
-        $products = product::select('*')->get();
+        $products = Product::select('*')->get();
         $categories = Category::select('*')->get();
         return view('dashboard.barang.daftarBarang', compact(['categories', 'products', 'aksi', 'target']));
     }
@@ -51,6 +51,12 @@ class BarangController extends Controller
         return redirect('/daftar-barang');
     }
     function deletedBarang(){
-        return view('barangDeletedList');
+        $deletedBarang = Product::onlyTrashed()->get();
+        return view('dashboard.barang.barangDeletedList', ['deletedBarang' => $deletedBarang]);
+    }
+    function restore(Product $product){
+        $products = Product::withTrashed()->where('id', $product->id)->first();
+        $products->restore();
+        return redirect('/daftar-barang');
     }
 }

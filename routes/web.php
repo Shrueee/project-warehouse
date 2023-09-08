@@ -4,6 +4,7 @@ use App\Http\Controllers\BarangController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\PegawaiController;
+use App\Http\Controllers\SupplierController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,6 +28,7 @@ Route::post('/daftar-barang/edit/{product}', [BarangController::class, 'editJadi
 Route::get('/daftar-barang/hapus/{product}', [BarangController::class, 'hapus']);
 Route::post('/daftar-barang/hapus/{product}', [BarangController::class, 'hapusJadi']);
 Route::get('/barang-deleted', [BarangController::class, 'deletedBarang']);
+Route::get('/barang-restore/{product}', [BarangController::class, 'restore']);
 
 //route kategori
 Route::get('/kategori-barang', [KategoriController::class, 'index']);
@@ -40,9 +42,15 @@ Route::post('/kategori-barang/hapus/{category}', [KategoriController::class, 'ha
 Route::get('/akun-pegawai', [PegawaiController::class, 'index'])->name('pegawai');
 Route::get('/akun-pegawai/hapus/{pegawai}', [PegawaiController::class, 'hapus']);
 Route::post('/akun-pegawai/hapus/{pegawai}', [PegawaiController::class, 'hapusJadi']);
+Route::get('/akun-supplier', [SupplierController::class, 'index'])->name('supplier');
+Route::get('/akun-supplier/hapus/{supplier}', [SupplierController::class, 'hapus']);
+Route::post('/akun-supplier/hapus/{supplier}', [SupplierController::class, 'hapusJadi']);
 
 Route::get('/akun-pegawai/detail/', function (){
     return view('detailPegawai');
+});
+Route::get('/akun-supplier/detail/', function (){
+    return view('/detailSupplier');
 });
 
 Route::get('/login', function () {

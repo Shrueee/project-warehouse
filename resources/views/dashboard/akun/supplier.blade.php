@@ -2,7 +2,7 @@
 @section('container')
 
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Akun Pegawai</h1>
+    <h1 class="h3 mb-0 text-gray-800">Akun Pemasok</h1>
     
     <!-- Modal -->
     @include('dashboard.barang.modal.pegawaiModal')
@@ -20,13 +20,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($users as $user)
+                    @foreach ($suppliers as $user)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $user->name }}</td>
                         <td>
-                            <a class="btn btn-info" href="/akun-pegawai/detail/{{ $user->id }}">Detail</a>
-                            <a class="btn btn-danger" href="/akun-pegawai/hapus/{{ $user->id }}">Blokir</a>
+                            <a class="btn btn-info" href="/akun-supplier/detail/{{ $user->id }}">Detail</a>
+                            <a class="btn btn-danger" href="/akun-supplier/hapus/{{ $user->id }}">Blokir</a>
                         </td>
                     </tr>  
                     @endforeach

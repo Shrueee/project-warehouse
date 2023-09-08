@@ -92,7 +92,7 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
                             <input type="submit" class="btn btn-primary" value="Tambahkan">
                         </div>
                     </form>
