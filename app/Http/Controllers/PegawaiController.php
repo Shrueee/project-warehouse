@@ -21,4 +21,13 @@ class PegawaiController extends Controller
         User::where('id', $user->id)->delete();
         return redirect('/akun-pegawai');
     }
+    function deletedPegawai(){
+        $deletedPegawai = User::onlyTrashed()->get();
+        return view('dashboard.akun.pegawaiDeletedList', ['deletedPegawai' => $deletedPegawai]);
+    }
+    function restore($user_id){
+        $users = User::where('id', $user_id)->withTrashed()->first();
+        $users->restore();
+        return redirect('/akun-pegawai');
+    }
 }

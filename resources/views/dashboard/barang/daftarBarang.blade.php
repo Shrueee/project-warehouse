@@ -35,8 +35,8 @@
                                 <td>{{ $product->Category->name }}</td>
                                 <td>{{ $product->qty }}</td>
                                 <td>
-                                    <a class="btn btn-warning" href="/daftar-barang/edit/{{ $product->id }}">Edit</a>
-                                    <a class="btn btn-danger" href="/daftar-barang/hapus/{{ $product->id }}">Delete</a>
+                                    <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editModal" data-bs-whatever="{{ $product->id }}" data-bs-name="{{ $product->name }}" data-bs-kateg="{{ $product->Category->name }}" data-bs-qty="{{ $product->qty }}">Edit</button>
+                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#hapusModal" data-bs-whatever="{{ $product->id }}" data-bs-name="{{ $product->name }}">Hapus</button>
                                 </td>
                             </tr>
                         @endforeach
@@ -45,4 +45,5 @@
             </div>
         </div>
     </div>
+    <script src="{{ asset('js/modal/modalBarang.js') }}"></script>
 @endsection

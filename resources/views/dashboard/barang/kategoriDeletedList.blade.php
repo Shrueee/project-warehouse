@@ -27,14 +27,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($categories as $category)
+                        @foreach ($deletedCategory as $category)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td><b>{{ $category->name }}</b></td>
                             <td>{{ $category->Products->count() }}</td>
                             <td>
-                                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editModal" data-bs-whatever="{{ $category->name }}">Edit</button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#hapusModal" data-bs-whatever="{{ $category->name }}">Hapus</button>
+                                <a class="btn btn-danger" href="/kategori-barang/{{ $category->id }}">Pulihkan</a>
                             </td>
                         </tr>  
                         @endforeach

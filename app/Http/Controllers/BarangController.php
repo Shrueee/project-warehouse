@@ -18,39 +18,29 @@ class BarangController extends Controller
         product::create([
             'name' => $request->nama,
             'category_id' => $request->kateg,
-            'qty' => $request->jumlah,
-            'price' => $request->harga
+            'qty' => $request->jumlah
         ]);
         return redirect()->back();
     }
-    function edit(Product $product){
-        $aksi = 'edit';
-        $target = $product;
-        $products = product::select('*')->get();
-        $categories = Category::where('id', '!=', $target->category->id)->get();
-        return view('dashboard.barang.daftarBarang', compact(['categories', 'products', 'aksi', 'target']));
-    }
     function editJadi(Request $request, Product $product){
-        Product::where('id', $product->id)->update([
+        Product::where('id', $request->id)->update([
             'name' => $request->nama,
             'category_id' => $request->kateg,
-            'qty' => $request->jumlah,
-            'price' => $request->harga
+            'qty' => $request->jumlah
         ]);
         return redirect('/daftar-barang');
     }
-    function hapus(Product $product){
-        $aksi = 'hapus';
-        $target = $product;
-        $products = product::select('*')->get();
-        $categories = Category::select('*')->get();
-        return view('dashboard.barang.daftarBarang', compact(['categories', 'products', 'aksi', 'target']));
-    }
     function hapusJadi(Request $request, Product $product){
-        Product::where('id', $product->id)->delete();
+        Product::where('id', $request->id)->delete();
         return redirect('/daftar-barang');
     }
     function deletedBarang(){
-        return view('dashboard.barang.barangDeletedList');
+        $deletedBarang = Product::onlyTrashed()->get();
+        return view('dashboard.barang.barangDeletedList', ['deletedBarang' => $deletedBarang]);
+    }
+    function restore($product_id){
+        $products = Product::where('id', $product_id)->withTrashed()->first();
+        $products->restore();
+        return redirect('/daftar-barang');
     }
 }

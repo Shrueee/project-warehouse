@@ -40,4 +40,22 @@ class KategoriController extends Controller
         Category::where('id', $category->id)->delete();
         return redirect('/kategori-barang');
     }
+    function deletedBarang(){
+        $deletedBarang = Category::onlyTrashed()->get();
+        return view('dashboard.barang.barangDeletedList', ['deletedBarang' => $deletedBarang]);
+    }
+    function restore($product_id){
+        $products = Category::where('id', $product_id)->withTrashed()->first();
+        $products->restore();
+        return redirect('/daftar-barang');
+    }
+    function deletedCategory(){
+        $deletedCategory = Category::onlyTrashed()->get();
+        return view('dashboard.barang.kategoriDeletedList', ['deletedCategory' => $deletedCategory]);
+    }
+    function restored($category_id){
+        $categories = Category::where('id', $category_id)->withTrashed()->first();
+        $categories->restore();
+        return redirect('/daftar-kategori');
+    }
 }

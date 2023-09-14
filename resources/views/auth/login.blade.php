@@ -212,7 +212,7 @@
                 <div class="col-lg-5 col-md-7">
                     <div class="card bg-secondary border-0 mb-0">
                         <div class="card-body px-lg-5 py-lg-5">
-                            <form method="POST" action="{{ route('login') }}">
+                            <form method="POST" action="/login">
                                 @csrf
                                 <div class="form-group mb-3">
                                     <div class="input-group input-group-merge input-group-alternative">

@@ -22,11 +22,12 @@ Route::get('/',[DashboardController::class,'index']);
 //route barang
 Route::get('/daftar-barang', [BarangController::class, 'index'])->name('barang');
 Route::post('/daftar-barang/baru', [BarangController::class, 'tambah']);
-Route::get('/daftar-barang/edit/{product}', [BarangController::class, 'edit']);
-Route::post('/daftar-barang/edit/{product}', [BarangController::class, 'editJadi']);
-Route::get('/daftar-barang/hapus/{product}', [BarangController::class, 'hapus']);
-Route::post('/daftar-barang/hapus/{product}', [BarangController::class, 'hapusJadi']);
+// Route::get('/daftar-barang/edit/{product}', [BarangController::class, 'edit']);
+Route::post('/daftar-barang/edit', [BarangController::class, 'editJadi']);
+// Route::get('/daftar-barang/hapus/{product}', [BarangController::class, 'hapus']);
+Route::post('/daftar-barang/hapus', [BarangController::class, 'hapusJadi']);
 Route::get('/barang-deleted', [BarangController::class, 'deletedBarang']);
+Route::get('/barang-restore/{product_id}', [BarangController::class, 'restore']);
 
 //route kategori
 Route::get('/kategori-barang', [KategoriController::class, 'index']);
@@ -35,11 +36,15 @@ Route::get('/kategori-barang/edit/{category}', [KategoriController::class, 'edit
 Route::post('/kategori-barang/edit/{category}', [KategoriController::class, 'editJadi']);
 Route::get('/kategori-barang/hapus/{category}', [KategoriController::class, 'hapus']);
 Route::post('/kategori-barang/hapus/{category}', [KategoriController::class, 'hapusJadi']);
+Route::get('/kategori-deleted', [KategoriController::class, 'deletedKategori']);
+Route::get('/kategori-restore/{category_id}', [KategoriController::class, 'restored']);
 
 //route akun
 Route::get('/akun-pegawai', [PegawaiController::class, 'index'])->name('pegawai');
 Route::get('/akun-pegawai/hapus/{pegawai}', [PegawaiController::class, 'hapus']);
 Route::post('/akun-pegawai/hapus/{pegawai}', [PegawaiController::class, 'hapusJadi']);
+Route::get('/akun-pegawai-deleted', [PegawaiController::class, 'deletedPegawai']);
+Route::get('/akun-pegawai-restore/{user_id}', [PegawaiController::class, 'restore']);
 
 Route::get('/akun-pegawai/detail/', function (){
     return view('detailPegawai');

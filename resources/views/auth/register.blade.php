@@ -125,7 +125,7 @@
                 <div class="col-lg-6 col-md-8">
                     <div class="card bg-secondary border-0">
                         <div class="card-body px-lg-5 py-lg-5">
-                            <form method="POST" action="{{ route('register') }}">
+                            <form method="POST" action="/register">
                                 @csrf
                                 <div class="form-group">
                                     <div class="input-group input-group-merge input-group-alternative mb-3">
@@ -152,12 +152,12 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                  <div class="input-group input-group-merge input-group-alternative">
-                                      <div class="input-group-prepend">
-                                          <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
-                                      </div>
-                                      <input id="password_confirm" name="password_confirmation" class="form-control" placeholder="Confirm Password" type="password" required autocomplete="new-password">
-                                  </div>
+                                    <div class="input-group input-group-merge input-group-alternative">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                                        </div>
+                                        <input id="password_confirm" name="password_confirmation" class="form-control" placeholder="Confirm Password" type="password" required autocomplete="new-password">
+                                    </div>
                                 </div>
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-primary mt-4">Create account</button>
