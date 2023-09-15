@@ -16,9 +16,13 @@ class BarangController extends Controller
     
     function tambah(Request $request){
         product::create([
+            'code' => $request->kode,
             'name' => $request->nama,
             'category_id' => $request->kateg,
-            'qty' => $request->jumlah
+            'qty' => $request->jumlah,
+            'image' => 'required|image|mimes:jpeg,png,jpg,svg|max:2048',
+            $imageName = time(). '_' .$request->gambar->extension(),  
+            $request->image->move(public_path('images'), $imageName)
         ]);
         return redirect()->back();
     }

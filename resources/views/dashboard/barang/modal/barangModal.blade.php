@@ -115,8 +115,16 @@
                     <form action="/daftar-barang/baru" method="POST" class="user">
                         @csrf
                         <div class="form-group">
+                            <label for="name">Kode Barang</label>
+                            <input type="text" class="form-control" min="0" oninput="validity.valid||(value='');" id="name" autocomplete="off" placeholder="Kode Produk" name="kode">
+                        </div>
+                        <div class="form-group">
                             <label for="name">Nama Barang</label>
                             <input type="text" class="form-control" id="name" name="nama" autocomplete="off" placeholder="Nama Barang">
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Gambar Barang</label>
+                            <input type="file" class="form-control" id="name" name="gambar" autocomplete="off">
                         </div>
                         <div class="form-group">
                             <label for="kateg">Kategori</label>
