@@ -15,8 +15,6 @@ input::-webkit-inner-spin-button {
 .dataTables_empty {
     text-align: center;
 }
-.
-{
-    background-color: white;
-
+.navbar-nav {
+    transition: all .25s ease-in-out;
 }

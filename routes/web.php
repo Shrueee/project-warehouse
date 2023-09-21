@@ -57,6 +57,9 @@ Route::get('/barang-keluar', [KeluarController::class, 'index']);
 Route::get('/akun-pegawai/detail/', function (){
     return view('detailPegawai');
 });
+Route::get('/akun-supplier/detail/', function (){
+    return view('/detailSupplier');
+});
 
 Route::get('/login', function () {
     return view('auth.login');

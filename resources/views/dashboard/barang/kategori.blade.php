@@ -21,6 +21,7 @@
                     <thead>
                         <tr>
                             <th>No</th>
+                            <th>No</th>
                             <th>Kategori</th>
                             <th>Banyak Produk</th>
                             <th>Aksi</th>
@@ -29,6 +30,7 @@
                     <tbody>
                         @foreach ($categories as $category)
                         <tr>
+                            <td>{{ $loop->iteration }}</td>
                             <td>{{ $loop->iteration }}</td>
                             <td><b>{{ $category->name }}</b></td>
                             <td>{{ $category->Products->count() }}</td>
