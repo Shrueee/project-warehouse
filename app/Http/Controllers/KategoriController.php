@@ -18,40 +18,28 @@ class KategoriController extends Controller
         ]);
         return redirect()->back();
     }
-    function edit(Category $category){
-        $aksi = 'edit';
-        $target = $category;
-        $categories = Category::get();
-        return view('dashboard.barang.kategori', compact(['categories', 'aksi', 'target']));
-    }
     function editJadi(Request $request, Category $category){
-        Category::where('id', $category->id)->update([
+        Category::where('id', $request->id)->update([
             'name' => $request->nama
         ]);
         return redirect('/kategori-barang');
     }
-    function hapus(Category $category){
-        $aksi = 'hapus';
-        $target = $category;
-        $categories = Category::get();
-        return view('dashboard.barang.kategori', compact(['categories', 'aksi', 'target']));
-    }
     function hapusJadi(Request $request, Category $category){
-        Category::where('id', $category->id)->delete();
+        Category::where('id', $request->id)->delete();
         return redirect('/kategori-barang');
     }
-    function deletedBarang(){
-        $deletedBarang = Category::onlyTrashed()->get();
-        return view('dashboard.barang.barangDeletedList', ['deletedBarang' => $deletedBarang]);
-    }
-    function restore($product_id){
-        $products = Category::where('id', $product_id)->withTrashed()->first();
-        $products->restore();
-        return redirect('/daftar-barang');
-    }
-    function deletedCategory(){
-        $deletedCategory = Category::onlyTrashed()->get();
-        return view('dashboard.barang.kategoriDeletedList', ['deletedCategory' => $deletedCategory]);
+    // function deletedBarang(){
+    //     $deletedBarang = Category::onlyTrashed()->get();
+    //     return view('dashboard.barang.barangDeletedList', ['deletedBarang' => $deletedBarang]);
+    // }
+    // function restore($product_id){
+    //     $products = Category::where('id', $product_id)->withTrashed()->first();
+    //     $products->restore();
+    //     return redirect('/daftar-barang');
+    // }
+    function deletedKategori(){
+        $deletedKategori = Category::onlyTrashed()->get();
+        return view('dashboard.barang.kategoriDeletedList', ['deletedCategory' => $deletedKategori]);
     }
     function restored($category_id){
         $categories = Category::where('id', $category_id)->withTrashed()->first();

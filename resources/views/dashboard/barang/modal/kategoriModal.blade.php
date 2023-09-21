@@ -80,7 +80,7 @@
                                 placeholder="Nama Kategori">
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
                             <input type="submit" class="btn btn-primary" value="Tambahkan">
                         </div>
                     </form>
@@ -89,6 +89,7 @@
         </div>
     </div>
 </div>
+
 {{-- edit --}}
 <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -102,12 +103,13 @@
                         @csrf
                         <div class="form-group">
                             <label for="name">Nama Kategori</label>
-                            <input type="text" class="form-control" id="id" name="id" autocomplete="off" readonly>
+                            <input type="text" class="form-control" id="id" name="id" autocomplete="off" required
+                                placeholder="Nama Kategori" readonly hidden>
                             <input type="text" class="form-control" id="name" name="nama" autocomplete="off" required
-                                placeholder="Nama Kategori">
+                                placeholder="Nama Kategori" required>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
                             <input type="submit" class="btn btn-primary" value="Simpan">
                         </div>
                     </form>
@@ -116,6 +118,7 @@
         </div>
     </div>
 </div>
+
 {{-- hapus --}}
 <div class="modal fade" id="hapusModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -128,9 +131,8 @@
                     <form action="/kategori-barang/hapus" method="POST" class="user">
                         @csrf
                         <div class="form-group">
-                            <label for="name"></label>
-                            <input type="text" class="form-control" id="id" name="id" autocomplete="off" required
-                                placeholder="Nama Kategori">
+                            <label id="name"></label>
+                            <input type="text" class="form-control" id="id" name="id" autocomplete="off" readonly hidden>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>

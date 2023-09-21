@@ -10,20 +10,22 @@ class BarangController extends Controller
 {
     function index(){
         $products = product::select('*')->get();
-        $categories = Category::select('*')->get();
-        return view('dashboard.barang.daftarBarang', compact(['products', 'categories']));
+        $categories = Category::get();
+        // dd($categories);
+        return view('dashboard.barang.daftarBarang', (['products'=> $products , 'categories'=>$categories]));
     }
-    
+
     function tambah(Request $request){
         product::create([
             'code' => $request->kode,
             'name' => $request->nama,
             'category_id' => $request->kateg,
             'qty' => $request->jumlah,
-            'image' => 'required|image|mimes:jpeg,png,jpg,svg|max:2048',
-            $imageName = time(). '_' .$request->gambar->extension(),  
-            $request->image->move(public_path('images'), $imageName)
+            // 'image' => 'required|image|mimes:jpeg,png,jpg,svg|max:2048',
+            // $imageName = time(). '_' .$request->gambar->extension(),
+            // $request->image->move(public_path('images'), $imageName)
         ]);
+
         return redirect()->back();
     }
     function editJadi(Request $request, Product $product){
@@ -36,7 +38,7 @@ class BarangController extends Controller
     }
     function hapusJadi(Request $request, Product $product){
         Product::where('id', $request->id)->delete();
-        return redirect('/daftar-barang');
+        return redirect('/daftar-barang')->with('pesan','berhasil dihapus');
     }
     function deletedBarang(){
         $deletedBarang = Product::onlyTrashed()->get();

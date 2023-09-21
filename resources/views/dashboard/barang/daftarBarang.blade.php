@@ -23,7 +23,6 @@
                             <th>No</th>
                             <th>Kode</th>
                             <th>Nama Produk</th>
-                            <th>Gambar</th>
                             <th>Kategori</th>
                             <th>Stok Produk</th>
                             <th>Aksi</th>
@@ -35,7 +34,6 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $product->code }}</td>
                                 <td>{{ $product->name }}</td>
-                                <td>{{ $product->img }}</td>
                                 <td>{{ $product->Category->name }}</td>
                                 <td>{{ $product->qty }}</td>
                                 <td>

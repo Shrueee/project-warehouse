@@ -92,6 +92,7 @@
         type="text/css">
     <!-- Argon CSS -->
     <link rel="stylesheet" href="{{ asset('template_argon') }}/assets/css/argon.css?v=1.1.0" type="text/css">
+    <link rel="stylesheet" href="{{ asset('style.css') }}">
 </head>
 
 <body class="bg-default">
@@ -212,6 +213,7 @@
                 <div class="col-lg-5 col-md-7">
                     <div class="card bg-secondary border-0 mb-0">
                         <div class="card-body px-lg-5 py-lg-5">
+                            <label>Login</label>
                             <form method="POST" action="/login">
                                 @csrf
                                 <div class="form-group mb-3">

@@ -2,9 +2,9 @@
 @section('container')
 <h1 class="h3 mb-0 text-gray-800">Kategori</h1>
 <div class="d-sm-flex align-items-center justify-content-end mb-4">
-    
+
     <!-- Button trigger modal -->
-    <a href="#" class="btn btn-secondary mr-3">Data Yang Dihapus</a>
+    <a href="/kategori=deleted" class="btn btn-secondary mr-3">Data Yang Dihapus</a>
     <button type="button" class="btn btn-primary my-3" data-toggle="modal" data-target="#exampleModal">
         <i class="fas fa-plus"></i>&nbsp;
         Tambah Kategori
@@ -33,15 +33,16 @@
                             <td><b>{{ $category->name }}</b></td>
                             <td>{{ $category->Products->count() }}</td>
                             <td>
-                                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editModal" data-bs-whatever="{{ $category->name }}">Edit</button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#hapusModal" data-bs-whatever="{{ $category->name }}">Hapus</button>
+                                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editModal" data-bs-whatever="{{ $category->id }}" data-bs-name="{{ $category->name }}">Edit</button>
+                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#hapusModal" data-bs-whatever="{{ $category->id }}" data-bs-name="{{ $category->name }}">Hapus</button>
                             </td>
-                        </tr>  
+                        </tr>
                         @endforeach
-                        
+
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
+    <script src="{{ asset('js/modal/modalKategori.js') }}"></script>
 @endsection

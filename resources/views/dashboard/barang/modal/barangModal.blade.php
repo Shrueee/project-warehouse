@@ -123,10 +123,6 @@
                             <input type="text" class="form-control" id="name" name="nama" autocomplete="off" placeholder="Nama Barang">
                         </div>
                         <div class="form-group">
-                            <label for="name">Gambar Barang</label>
-                            <input type="file" class="form-control" id="name" name="gambar" autocomplete="off">
-                        </div>
-                        <div class="form-group">
                             <label for="kateg">Kategori</label>
                             <select class="form-control" name="kateg">
                                 @foreach ($categories as $category)
@@ -175,7 +171,7 @@
                         </div>
                         <div class="form-group">
                             <label for="name">Jumlah Barang</label>
-                            <input type="number" class="form-control" min="0" oninput="validity.valid||(value='');" id="jumlah" autocomplete="off" placeholder="Jumlah Produk" name="jumlah">
+                            <input type="number" class="form-control" min="0" oninput="validity.valid||(value='');" id="jumlah" autocomplete="off" placeholder="Jumlah Produk" name="jumlah" readonly>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
